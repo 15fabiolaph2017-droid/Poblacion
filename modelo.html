@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo Matemático - Crecimiento Poblacional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- MathJax for rendering math equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body id="model-body">
+    <div class="model-container glass-panel">
+        <header class="model-header">
+            <h1>Modelo Matemático de Crecimiento</h1>
+            <a href="index.html" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Volver al Simulador</a>
+        </header>
+        
+        <div class="model-content">
+            <section class="math-section">
+                <h2>1. La Ecuación Diferencial</h2>
+                <p>El modelo de crecimiento poblacional de Malthus asume que la tasa de cambio de la población respecto al tiempo es proporcional a la población actual.</p>
+                <div class="math-block">
+                    $$\frac{dP}{dt} = kP$$
+                </div>
+                <ul>
+                    <li><strong>P</strong>: Población en el tiempo t.</li>
+                    <li><strong>t</strong>: Tiempo (en años).</li>
+                    <li><strong>k</strong>: Constante de crecimiento (tasa de crecimiento relativa). Para Cabo Verde, estimamos \( k \approx 0.011 \) (1.1% anual).</li>
+                </ul>
+            </section>
+            
+            <section class="math-section">
+                <h2>2. Solución de la Ecuación</h2>
+                <p>Para resolver esta ecuación diferencial, utilizamos el método de separación de variables:</p>
+                <div class="math-block">
+                    $$\frac{dP}{P} = k dt$$
+                </div>
+                <p>Integramos ambos lados:</p>
+                <div class="math-block">
+                    $$\int \frac{dP}{P} = \int k dt$$
+                </div>
+                <div class="math-block">
+                    $$\ln|P| = kt + C$$
+                </div>
+                <p>Despejando P aplicando la función exponencial:</p>
+                <div class="math-block">
+                    $$P = e^{kt+C} = e^C \cdot e^{kt}$$
+                </div>
+                <p>Definiendo \( P_0 = e^C \) (la población en el tiempo t=0):</p>
+                <div class="math-block highlight-math">
+                    $$P(t) = P_0 e^{kt}$$
+                </div>
+            </section>
+            
+            <section class="math-section">
+                <h2>3. Ejemplos Prácticos</h2>
+                
+                <div class="example-box">
+                    <h3>Ejemplo 1: Estimación a futuro</h3>
+                    <p><strong>Problema:</strong> Si la población de Cabo Verde en 2024 (t=0) es de 598,000 habitantes y la tasa de crecimiento es 1.1% (k = 0.011), ¿cuál será la población en el año 2034 (t=10)?</p>
+                    <p><strong>Solución:</strong></p>
+                    <div class="math-block">
+                        $$P(10) = 598,000 \cdot e^{0.011 \cdot 10}$$
+                    </div>
+                    <div class="math-block">
+                        $$P(10) = 598,000 \cdot e^{0.11} \approx 598,000 \cdot 1.116 \approx 667,532 \text{ habitantes}$$
+                    </div>
+                </div>
+                
+                <div class="example-box">
+                    <h3>Ejemplo 2: Tiempo para población objetivo</h3>
+                    <p><strong>Problema:</strong> ¿Cuánto tiempo tomará para que la población llegue a 1,000,000 de habitantes?</p>
+                    <p><strong>Solución:</strong> Partimos de \( P(t) = P_0 e^{kt} \). Despejamos t:</p>
+                    <div class="math-block">
+                        $$1,000,000 = 598,000 \cdot e^{0.011t}$$
+                    </div>
+                    <div class="math-block">
+                        $$\frac{1,000,000}{598,000} = e^{0.011t}$$
+                    </div>
+                    <div class="math-block">
+                        $$\ln(1.672) = 0.011t$$
+                    </div>
+                    <div class="math-block">
+                        $$0.514 = 0.011t \implies t \approx 46.7 \text{ años}$$
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
